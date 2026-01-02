@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light only">
     <title>Sahyog Tour & Travels - Premium Travel Experience</title>
-    
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:wght@700;900&display=swap"
+        rel="stylesheet">
 
     <style>
         :root {
@@ -24,9 +27,9 @@
             --gradient: linear-gradient(135deg, #0052cc 0%, #00b4d8 100%);
             --gradient-warm: linear-gradient(135deg, #ff7a00 0%, #ffaa00 100%);
             --accent-gold: #ffd700;
-            --shadow-sm: 0 2px 10px rgba(0,0,0,0.05);
-            --shadow-md: 0 10px 30px rgba(0,0,0,0.1);
-            --shadow-lg: 0 20px 50px rgba(0,0,0,0.15);
+            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
         }
 
         * {
@@ -59,23 +62,49 @@
 
         /* --- Enhanced Animations --- */
         @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
         }
 
         @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: var(--secondary); }
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: var(--secondary);
+            }
         }
 
         @keyframes floating {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
         }
 
         @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(0, 82, 204, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(0, 82, 204, 0.6); }
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(0, 82, 204, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(0, 82, 204, 0.6);
+            }
         }
 
         @keyframes slideInUp {
@@ -83,6 +112,7 @@
                 opacity: 0;
                 transform: translateY(40px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -90,8 +120,13 @@
         }
 
         @keyframes shimmer {
-            0% { background-position: -1000px 0; }
-            100% { background-position: 1000px 0; }
+            0% {
+                background-position: -1000px 0;
+            }
+
+            100% {
+                background-position: 1000px 0;
+            }
         }
 
         .reveal-text {
@@ -121,7 +156,7 @@
             background: var(--glass);
             backdrop-filter: blur(20px);
             padding: 12px 0;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
         }
 
         .navbar-brand {
@@ -167,8 +202,8 @@
         /* --- Enhanced Hero Section --- */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, rgba(0, 82, 204, 0.85) 0%, rgba(10, 25, 47, 0.75) 100%), 
-                        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(135deg, rgba(0, 82, 204, 0.30) 0%, rgba(10, 25, 47, 0.35) 100%),
+                url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80');
             background-attachment: fixed;
             background-position: center;
             background-size: cover;
@@ -195,7 +230,7 @@
             font-weight: 900;
             color: white;
             line-height: 1.1;
-            text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .hero-badge {
@@ -220,7 +255,7 @@
             margin-top: -120px;
             position: relative;
             z-index: 100;
-            border: 2px solid rgba(255,255,255,0.5);
+            border: 2px solid rgba(255, 255, 255, 0.5);
             transition: all 0.4s ease;
         }
 
@@ -383,7 +418,7 @@
 
         .package-card:hover {
             transform: translateY(-20px);
-            box-shadow: 0 30px 70px rgba(0,0,0,0.2);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.2);
         }
 
         .img-zoom-container {
@@ -396,7 +431,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.3) 100%);
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
             opacity: 0;
             transition: 0.4s ease;
         }
@@ -425,7 +460,7 @@
             border-radius: 50px;
             font-weight: 900;
             color: var(--primary);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
             font-size: 1.1rem;
             z-index: 10;
         }
@@ -691,8 +726,13 @@
         }
 
         @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         /* --- Enhanced CTA Section --- */
@@ -851,13 +891,15 @@
         }
     </style>
 </head>
+
 <body>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
         <div class="container-fluid px-4">
             <a class="navbar-brand" href="#">SAHYOG<span>.</span>T&T</a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navContent">
                 <i class="fas fa-bars-staggered"></i>
             </button>
             <div class="collapse navbar-collapse" id="navContent">
@@ -886,8 +928,10 @@
                     <span class="hero-badge mb-4">
                         <i class="fas fa-trophy me-2"></i>#1 TRAVEL AGENCY IN HARYANA
                     </span>
-                    <h1 class="hero-title mb-4">Explore The <br><span style="color: var(--secondary);">World</span> With Ease.</h1>
-                    <p class="text-white opacity-90 fs-5 mb-5 reveal-text">Flights • Hotels • Holiday Packages • Visa Assistance</p>
+                    <h1 class="hero-title mb-4">Explore The <br><span style="color: var(--secondary);">World</span> With
+                        Ease.</h1>
+                    <p class="text-white opacity-90 fs-5 mb-5 reveal-text">Flights • Hotels • Holiday Packages • Visa
+                        Assistance</p>
                     <div class="d-flex gap-3 flex-wrap">
                         <a href="#destinations" class="btn btn-primary btn-lg rounded-pill px-5 py-3 fw-bold shadow">
                             <i class="fas fa-compass me-2"></i>Explore Now
@@ -938,7 +982,10 @@
     <!-- Marquee -->
     <div class="marquee mt-5">
         <div class="marquee-content">
-            ✈️ FLIGHT BOOKING • 🏨 HOTEL RESERVATION • 🌍 INTERNATIONAL TOURS • 📋 VISA ASSISTANCE • ☎️ 24/7 SUPPORT • 💰 BEST PRICE GUARANTEED • 👥 GROUP TOURS • 🏢 CORPORATE TRAVEL • ✈️ FLIGHT BOOKING • 🏨 HOTEL RESERVATION • 🌍 INTERNATIONAL TOURS • 📋 VISA ASSISTANCE • ☎️ 24/7 SUPPORT • 💰 BEST PRICE GUARANTEED • 👥 GROUP TOURS • 🏢 CORPORATE TRAVEL
+            ✈️ FLIGHT BOOKING • 🏨 HOTEL RESERVATION • 🌍 INTERNATIONAL TOURS • 📋 VISA ASSISTANCE • ☎️ 24/7 SUPPORT •
+            💰 BEST PRICE GUARANTEED • 👥 GROUP TOURS • 🏢 CORPORATE TRAVEL • ✈️ FLIGHT BOOKING • 🏨 HOTEL RESERVATION •
+            🌍 INTERNATIONAL TOURS • 📋 VISA ASSISTANCE • ☎️ 24/7 SUPPORT • 💰 BEST PRICE GUARANTEED • 👥 GROUP TOURS •
+            🏢 CORPORATE TRAVEL
         </div>
     </div>
 
@@ -984,7 +1031,8 @@
             <div class="text-center mb-5" data-aos="fade-up">
                 <h6 class="text-primary fw-bold text-uppercase letter-spacing-1">OUR EXPERTISE</h6>
                 <h2 class="display-5 fw-bold section-header mb-4">Why Choose Sahyog?</h2>
-                <p class="text-muted fs-5 mt-3 mx-auto" style="max-width: 700px;">We provide comprehensive travel solutions with world-class service and unmatched customer satisfaction</p>
+                <p class="text-muted fs-5 mt-3 mx-auto" style="max-width: 700px;">We provide comprehensive travel
+                    solutions with world-class service and unmatched customer satisfaction</p>
             </div>
 
             <div class="swiper-scroll-container" data-aos="fade-up">
@@ -999,42 +1047,48 @@
                             <div class="why-card">
                                 <div class="why-icon"><i class="fas fa-ticket"></i></div>
                                 <h5 class="fw-bold mb-3">Instant Flight Booking</h5>
-                                <p class="text-muted">Real-time booking for domestic & international routes with competitive prices and instant confirmation.</p>
+                                <p class="text-muted">Real-time booking for domestic & international routes with
+                                    competitive prices and instant confirmation.</p>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="why-card">
                                 <div class="why-icon"><i class="fas fa-umbrella-beach"></i></div>
                                 <h5 class="fw-bold mb-3">Customized Packages</h5>
-                                <p class="text-muted">Tailored itineraries designed to match your preferences, budget, and travel style perfectly.</p>
+                                <p class="text-muted">Tailored itineraries designed to match your preferences, budget,
+                                    and travel style perfectly.</p>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="why-card">
                                 <div class="why-icon"><i class="fas fa-passport"></i></div>
                                 <h5 class="fw-bold mb-3">Visa Assistance</h5>
-                                <p class="text-muted">Expert support for visa documentation, processing, and interview preparation with high success rates.</p>
+                                <p class="text-muted">Expert support for visa documentation, processing, and interview
+                                    preparation with high success rates.</p>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="why-card">
                                 <div class="why-icon"><i class="fas fa-shield-halved"></i></div>
                                 <h5 class="fw-bold mb-3">Safe Travel Guarantee</h5>
-                                <p class="text-muted">Verified accommodations, secure transport, and 24/7 emergency support throughout your journey.</p>
+                                <p class="text-muted">Verified accommodations, secure transport, and 24/7 emergency
+                                    support throughout your journey.</p>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="why-card">
                                 <div class="why-icon"><i class="fas fa-medal"></i></div>
                                 <h5 class="fw-bold mb-3">Best Price Match</h5>
-                                <p class="text-muted">Find a lower price? We'll match it and give you additional exclusive discounts and benefits.</p>
+                                <p class="text-muted">Find a lower price? We'll match it and give you additional
+                                    exclusive discounts and benefits.</p>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="why-card">
                                 <div class="why-icon"><i class="fas fa-headset"></i></div>
                                 <h5 class="fw-bold mb-3">24/7 Support</h5>
-                                <p class="text-muted">Round-the-clock multilingual customer service to resolve queries and concerns anytime, anywhere.</p>
+                                <p class="text-muted">Round-the-clock multilingual customer service to resolve queries
+                                    and concerns anytime, anywhere.</p>
                             </div>
                         </div>
                     </div>
@@ -1050,7 +1104,8 @@
                 <div class="text-center">
                     <h6 class="text-primary fw-bold text-uppercase">FEATURED TOURS</h6>
                     <h2 class="display-5 fw-bold section-header mb-4">Popular Destinations</h2>
-                    <p class="text-muted fs-5 mx-auto" style="max-width: 700px;">Discover handpicked experiences across the globe with unbeatable prices and unforgettable memories</p>
+                    <p class="text-muted fs-5 mx-auto" style="max-width: 700px;">Discover handpicked experiences across
+                        the globe with unbeatable prices and unforgettable memories</p>
                 </div>
             </div>
 
@@ -1068,13 +1123,17 @@
                                 <div class="img-zoom-container">
                                     <span class="package-badge"><i class="fas fa-fire me-1"></i> HOT DEAL</span>
                                     <span class="price-tag">₹55,000</span>
-                                    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600" alt="Dubai">
+                                    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600"
+                                        alt="Dubai">
                                 </div>
                                 <div class="card-body p-4">
                                     <h5 class="fw-bold mb-2">Dubai City Sparkle</h5>
-                                    <p class="text-muted small mb-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i>UAE • 5 Days / 4 Nights</p>
+                                    <p class="text-muted small mb-3"><i
+                                            class="fas fa-map-marker-alt me-2 text-secondary"></i>UAE • 5 Days / 4
+                                        Nights</p>
                                     <hr class="my-3 opacity-25">
-                                    <div class="d-flex justify-content-between align-items-center text-center small mb-3">
+                                    <div
+                                        class="d-flex justify-content-between align-items-center text-center small mb-3">
                                         <span><i class="fas fa-star text-warning me-1"></i> 4.8 Rating</span>
                                         <span><i class="fas fa-users text-primary me-1"></i> 2.3K Bookings</span>
                                     </div>
@@ -1091,13 +1150,17 @@
                                 <div class="img-zoom-container">
                                     <span class="package-badge"><i class="fas fa-crown me-1"></i> PREMIUM</span>
                                     <span class="price-tag">₹1,20,000</span>
-                                    <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=600" alt="Switzerland">
+                                    <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=600"
+                                        alt="Switzerland">
                                 </div>
                                 <div class="card-body p-4">
                                     <h5 class="fw-bold mb-2">Swiss Alps Magic</h5>
-                                    <p class="text-muted small mb-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i>Europe • 7 Days / 6 Nights</p>
+                                    <p class="text-muted small mb-3"><i
+                                            class="fas fa-map-marker-alt me-2 text-secondary"></i>Europe • 7 Days / 6
+                                        Nights</p>
                                     <hr class="my-3 opacity-25">
-                                    <div class="d-flex justify-content-between align-items-center text-center small mb-3">
+                                    <div
+                                        class="d-flex justify-content-between align-items-center text-center small mb-3">
                                         <span><i class="fas fa-star text-warning me-1"></i> 4.9 Rating</span>
                                         <span><i class="fas fa-users text-primary me-1"></i> 1.8K Bookings</span>
                                     </div>
@@ -1114,13 +1177,17 @@
                                 <div class="img-zoom-container">
                                     <span class="package-badge"><i class="fas fa-bolt me-1"></i> BESTSELLER</span>
                                     <span class="price-tag">₹25,500</span>
-                                    <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=600" alt="Kerala">
+                                    <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=600"
+                                        alt="Kerala">
                                 </div>
                                 <div class="card-body p-4">
                                     <h5 class="fw-bold mb-2">Kerala Backwaters</h5>
-                                    <p class="text-muted small mb-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i>India • 4 Days / 3 Nights</p>
+                                    <p class="text-muted small mb-3"><i
+                                            class="fas fa-map-marker-alt me-2 text-secondary"></i>India • 4 Days / 3
+                                        Nights</p>
                                     <hr class="my-3 opacity-25">
-                                    <div class="d-flex justify-content-between align-items-center text-center small mb-3">
+                                    <div
+                                        class="d-flex justify-content-between align-items-center text-center small mb-3">
                                         <span><i class="fas fa-star text-warning me-1"></i> 4.7 Rating</span>
                                         <span><i class="fas fa-users text-primary me-1"></i> 3.5K Bookings</span>
                                     </div>
@@ -1137,13 +1204,17 @@
                                 <div class="img-zoom-container">
                                     <span class="package-badge"><i class="fas fa-fire me-1"></i> TRENDING</span>
                                     <span class="price-tag">₹85,000</span>
-                                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600" alt="Bali">
+                                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600"
+                                        alt="Bali">
                                 </div>
                                 <div class="card-body p-4">
                                     <h5 class="fw-bold mb-2">Bali Tropical Escape</h5>
-                                    <p class="text-muted small mb-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i>Indonesia • 5 Days / 4 Nights</p>
+                                    <p class="text-muted small mb-3"><i
+                                            class="fas fa-map-marker-alt me-2 text-secondary"></i>Indonesia • 5 Days / 4
+                                        Nights</p>
                                     <hr class="my-3 opacity-25">
-                                    <div class="d-flex justify-content-between align-items-center text-center small mb-3">
+                                    <div
+                                        class="d-flex justify-content-between align-items-center text-center small mb-3">
                                         <span><i class="fas fa-star text-warning me-1"></i> 4.8 Rating</span>
                                         <span><i class="fas fa-users text-primary me-1"></i> 2.1K Bookings</span>
                                     </div>
@@ -1160,13 +1231,17 @@
                                 <div class="img-zoom-container">
                                     <span class="package-badge"><i class="fas fa-star me-1"></i> POPULAR</span>
                                     <span class="price-tag">₹95,000</span>
-                                    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600" alt="Thailand">
+                                    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600"
+                                        alt="Thailand">
                                 </div>
                                 <div class="card-body p-4">
                                     <h5 class="fw-bold mb-2">Thailand Adventure</h5>
-                                    <p class="text-muted small mb-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i>Thailand • 6 Days / 5 Nights</p>
+                                    <p class="text-muted small mb-3"><i
+                                            class="fas fa-map-marker-alt me-2 text-secondary"></i>Thailand • 6 Days / 5
+                                        Nights</p>
                                     <hr class="my-3 opacity-25">
-                                    <div class="d-flex justify-content-between align-items-center text-center small mb-3">
+                                    <div
+                                        class="d-flex justify-content-between align-items-center text-center small mb-3">
                                         <span><i class="fas fa-star text-warning me-1"></i> 4.6 Rating</span>
                                         <span><i class="fas fa-users text-primary me-1"></i> 2.9K Bookings</span>
                                     </div>
@@ -1183,13 +1258,17 @@
                                 <div class="img-zoom-container">
                                     <span class="package-badge"><i class="fas fa-heart me-1"></i> ROMANTIC</span>
                                     <span class="price-tag">₹75,000</span>
-                                    <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=600" alt="Paris">
+                                    <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=600"
+                                        alt="Paris">
                                 </div>
                                 <div class="card-body p-4">
                                     <h5 class="fw-bold mb-2">Paris Romance</h5>
-                                    <p class="text-muted small mb-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i>France • 5 Days / 4 Nights</p>
+                                    <p class="text-muted small mb-3"><i
+                                            class="fas fa-map-marker-alt me-2 text-secondary"></i>France • 5 Days / 4
+                                        Nights</p>
                                     <hr class="my-3 opacity-25">
-                                    <div class="d-flex justify-content-between align-items-center text-center small mb-3">
+                                    <div
+                                        class="d-flex justify-content-between align-items-center text-center small mb-3">
                                         <span><i class="fas fa-star text-warning me-1"></i> 4.9 Rating</span>
                                         <span><i class="fas fa-users text-primary me-1"></i> 4.2K Bookings</span>
                                     </div>
@@ -1211,7 +1290,8 @@
             <div class="text-center mb-5" data-aos="fade-up">
                 <h6 class="text-primary fw-bold text-uppercase">TRAVEL INSPIRATION</h6>
                 <h2 class="display-5 fw-bold section-header mb-4">Our Gallery</h2>
-                <p class="text-muted fs-5 mx-auto" style="max-width: 700px;">Experience the beauty of places our travelers have explored and create your own memories</p>
+                <p class="text-muted fs-5 mx-auto" style="max-width: 700px;">Experience the beauty of places our
+                    travelers have explored and create your own memories</p>
             </div>
 
             <div class="swiper-scroll-container" data-aos="fade-up">
@@ -1224,49 +1304,57 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="gallery-item">
-                                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600" alt="Beach Sunset">
+                                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600"
+                                    alt="Beach Sunset">
                                 <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="gallery-item">
-                                <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=600" alt="Mountain Peak">
+                                <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=600"
+                                    alt="Mountain Peak">
                                 <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="gallery-item">
-                                <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=600" alt="City Lights">
+                                <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=600"
+                                    alt="City Lights">
                                 <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="gallery-item">
-                                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600" alt="Tropical Beach">
+                                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600"
+                                    alt="Tropical Beach">
                                 <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="gallery-item">
-                                <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600" alt="Temple Architecture">
+                                <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600"
+                                    alt="Temple Architecture">
                                 <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="gallery-item">
-                                <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=600" alt="Alpine Landscape">
+                                <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=600"
+                                    alt="Alpine Landscape">
                                 <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="gallery-item">
-                                <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600" alt="Desert Dubai">
+                                <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600"
+                                    alt="Desert Dubai">
                                 <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="gallery-item">
-                                <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=600" alt="Backwaters">
+                                <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=600"
+                                    alt="Backwaters">
                                 <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
                             </div>
                         </div>
@@ -1282,7 +1370,8 @@
             <div class="text-center mb-5" data-aos="fade-up">
                 <h6 class="text-primary fw-bold text-uppercase">CLIENT REVIEWS</h6>
                 <h2 class="display-5 fw-bold section-header mb-4">What Our Travelers Say</h2>
-                <p class="text-muted fs-5 mx-auto" style="max-width: 700px;">Thousands of satisfied customers share their amazing experiences with Sahyog Tour & Travels</p>
+                <p class="text-muted fs-5 mx-auto" style="max-width: 700px;">Thousands of satisfied customers share
+                    their amazing experiences with Sahyog Tour & Travels</p>
             </div>
 
             <div class="swiper-scroll-container" data-aos="fade-up">
@@ -1298,9 +1387,11 @@
                                 <div class="testimonial-quote">"</div>
                                 <div class="testimonial-avatar">👨‍💼</div>
                                 <div class="stars">★★★★★</div>
-                                <p>"Amazing service! Sahyog made my family trip to Dubai absolutely memorable. The itinerary was perfect and customer support was exceptional throughout."</p>
+                                <p>"Amazing service! Sahyog made my family trip to Dubai absolutely memorable. The
+                                    itinerary was perfect and customer support was exceptional throughout."</p>
                                 <h6 class="fw-bold mb-1">Rajesh Kumar</h6>
-                                <small class="text-muted"><i class="fas fa-map-marker-alt me-1"></i>Hisar, Haryana</small>
+                                <small class="text-muted"><i class="fas fa-map-marker-alt me-1"></i>Hisar,
+                                    Haryana</small>
                             </div>
                         </div>
 
@@ -1309,7 +1400,8 @@
                                 <div class="testimonial-quote">"</div>
                                 <div class="testimonial-avatar">👩‍🦰</div>
                                 <div class="stars">★★★★★</div>
-                                <p>"Best travel agency in Hisar! They organized my entire Switzerland trip with perfection. Highly recommended for all international travelers."</p>
+                                <p>"Best travel agency in Hisar! They organized my entire Switzerland trip with
+                                    perfection. Highly recommended for all international travelers."</p>
                                 <h6 class="fw-bold mb-1">Priya Sharma</h6>
                                 <small class="text-muted"><i class="fas fa-map-marker-alt me-1"></i>New Delhi</small>
                             </div>
@@ -1320,7 +1412,8 @@
                                 <div class="testimonial-quote">"</div>
                                 <div class="testimonial-avatar">👴</div>
                                 <div class="stars">★★★★★</div>
-                                <p>"Professional team, competitive prices, and outstanding execution. Our Kerala trip was beyond expectations. Will definitely book again!"</p>
+                                <p>"Professional team, competitive prices, and outstanding execution. Our Kerala trip
+                                    was beyond expectations. Will definitely book again!"</p>
                                 <h6 class="fw-bold mb-1">Virender Singh</h6>
                                 <small class="text-muted"><i class="fas fa-map-marker-alt me-1"></i>Panipat</small>
                             </div>
@@ -1331,7 +1424,8 @@
                                 <div class="testimonial-quote">"</div>
                                 <div class="testimonial-avatar">👩‍💼</div>
                                 <div class="stars">★★★★★</div>
-                                <p>"Booked Thailand trip at last minute and they delivered flawlessly. Expert visa guidance and seamless travel experience from start to finish."</p>
+                                <p>"Booked Thailand trip at last minute and they delivered flawlessly. Expert visa
+                                    guidance and seamless travel experience from start to finish."</p>
                                 <h6 class="fw-bold mb-1">Anjali Gupta</h6>
                                 <small class="text-muted"><i class="fas fa-map-marker-alt me-1"></i>Faridabad</small>
                             </div>
@@ -1342,7 +1436,8 @@
                                 <div class="testimonial-quote">"</div>
                                 <div class="testimonial-avatar">👨‍🦱</div>
                                 <div class="stars">★★★★★</div>
-                                <p>"Outstanding service for corporate travel arrangements. Their attention to detail and quick response time is unmatched in the industry."</p>
+                                <p>"Outstanding service for corporate travel arrangements. Their attention to detail and
+                                    quick response time is unmatched in the industry."</p>
                                 <h6 class="fw-bold mb-1">Amit Patel</h6>
                                 <small class="text-muted"><i class="fas fa-map-marker-alt me-1"></i>Gurgaon</small>
                             </div>
@@ -1353,7 +1448,8 @@
                                 <div class="testimonial-quote">"</div>
                                 <div class="testimonial-avatar">👵</div>
                                 <div class="stars">★★★★★</div>
-                                <p>"My entire family's Paris trip was perfectly organized. The 24/7 support made us feel secure throughout the entire journey."</p>
+                                <p>"My entire family's Paris trip was perfectly organized. The 24/7 support made us feel
+                                    secure throughout the entire journey."</p>
                                 <h6 class="fw-bold mb-1">Meera Verma</h6>
                                 <small class="text-muted"><i class="fas fa-map-marker-alt me-1"></i>Rohtak</small>
                             </div>
@@ -1372,14 +1468,17 @@
                 <div class="row align-items-center">
                     <div class="col-lg-8 text-center text-lg-start mb-4 mb-lg-0">
                         <h2 class="display-5 fw-bold mb-3">Ready for Your Next Adventure?</h2>
-                        <p class="fs-5 mb-0 opacity-90">Get exclusive deals and personalized travel recommendations tailored just for you</p>
+                        <p class="fs-5 mb-0 opacity-90">Get exclusive deals and personalized travel recommendations
+                            tailored just for you</p>
                     </div>
                     <div class="col-lg-4 text-center text-lg-end">
                         <div class="d-flex flex-column gap-3">
-                            <a href="https://wa.me/919053033101" target="_blank" class="btn btn-light btn-lg rounded-pill px-5 py-3 fw-bold">
+                            <a href="https://wa.me/919053033101" target="_blank"
+                                class="btn btn-light btn-lg rounded-pill px-5 py-3 fw-bold">
                                 <i class="fab fa-whatsapp me-2"></i>WhatsApp Us
                             </a>
-                            <a href="tel:+919053033101" class="btn btn-outline-light btn-lg rounded-pill px-5 py-3 fw-bold">
+                            <a href="tel:+919053033101"
+                                class="btn btn-outline-light btn-lg rounded-pill px-5 py-3 fw-bold">
                                 <i class="fas fa-phone me-2"></i>Call Us Now
                             </a>
                         </div>
@@ -1395,18 +1494,23 @@
             <div class="row g-4 mb-5">
                 <div class="col-lg-4 col-md-6">
                     <h4 class="fw-bold mb-4">SAHYOG<span style="color: var(--secondary);">.</span>T&T</h4>
-                    <p class="opacity-75 mb-4">Your trusted travel partner for unforgettable journeys across the globe. Creating memories that last a lifetime.</p>
+                    <p class="opacity-75 mb-4">Your trusted travel partner for unforgettable journeys across the globe.
+                        Creating memories that last a lifetime.</p>
                     <div class="d-flex gap-3">
-                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle" style="width: 40px; height: 40px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle"
+                            style="width: 40px; height: 40px; padding: 0; display: flex; align-items: center; justify-content: center;">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle" style="width: 40px; height: 40px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle"
+                            style="width: 40px; height: 40px; padding: 0; display: flex; align-items: center; justify-content: center;">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle" style="width: 40px; height: 40px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle"
+                            style="width: 40px; height: 40px; padding: 0; display: flex; align-items: center; justify-content: center;">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle" style="width: 40px; height: 40px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle"
+                            style="width: 40px; height: 40px; padding: 0; display: flex; align-items: center; justify-content: center;">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>
@@ -1414,21 +1518,31 @@
                 <div class="col-lg-2 col-md-6">
                     <h6 class="fw-bold mb-4">Quick Links</h6>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#home" class="text-decoration-none text-white opacity-75 d-block hover-primary">Home</a></li>
-                        <li class="mb-2"><a href="#destinations" class="text-decoration-none text-white opacity-75 d-block">Destinations</a></li>
-                        <li class="mb-2"><a href="#services" class="text-decoration-none text-white opacity-75 d-block">Services</a></li>
-                        <li class="mb-2"><a href="#gallery" class="text-decoration-none text-white opacity-75 d-block">Gallery</a></li>
-                        <li class="mb-2"><a href="#testimonials" class="text-decoration-none text-white opacity-75 d-block">Reviews</a></li>
+                        <li class="mb-2"><a href="#home"
+                                class="text-decoration-none text-white opacity-75 d-block hover-primary">Home</a></li>
+                        <li class="mb-2"><a href="#destinations"
+                                class="text-decoration-none text-white opacity-75 d-block">Destinations</a></li>
+                        <li class="mb-2"><a href="#services"
+                                class="text-decoration-none text-white opacity-75 d-block">Services</a></li>
+                        <li class="mb-2"><a href="#gallery"
+                                class="text-decoration-none text-white opacity-75 d-block">Gallery</a></li>
+                        <li class="mb-2"><a href="#testimonials"
+                                class="text-decoration-none text-white opacity-75 d-block">Reviews</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h6 class="fw-bold mb-4">Services</h6>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-white opacity-75 d-block">✈️ Flight Booking</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-white opacity-75 d-block">🏨 Hotel Reservation</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-white opacity-75 d-block">📋 Visa Assistance</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-white opacity-75 d-block">🌴 Holiday Packages</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-white opacity-75 d-block">🏢 Corporate Travel</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white opacity-75 d-block">✈️
+                                Flight Booking</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white opacity-75 d-block">🏨 Hotel
+                                Reservation</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white opacity-75 d-block">📋 Visa
+                                Assistance</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white opacity-75 d-block">🌴
+                                Holiday Packages</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white opacity-75 d-block">🏢
+                                Corporate Travel</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -1438,14 +1552,17 @@
                             <i class="fas fa-phone text-secondary me-3 mt-1"></i>
                             <div>
                                 <strong>Phone:</strong><br>
-                                <a href="tel:+919053033101" class="text-white opacity-75 text-decoration-none">+91 90530 33101</a>
+                                <a href="tel:+919053033101" class="text-white opacity-75 text-decoration-none">+91 90530
+                                    33101</a>
                             </div>
                         </li>
                         <li class="mb-3 d-flex align-items-start">
                             <i class="fas fa-envelope text-secondary me-3 mt-1"></i>
                             <div>
                                 <strong>Email:</strong><br>
-                                <a href="/cdn-cgi/l/email-protection#3e575058517e4d5f564751594a514b4c4d105d5153" class="text-white opacity-75 text-decoration-none"><span class="__cf_email__" data-cfemail="95fcfbf3fad5e6f4fdecfaf2e1fae0e7e6bbf6faf8">[email&#160;protected]</span></a>
+                                <a href="/cdn-cgi/l/email-protection#3e575058517e4d5f564751594a514b4c4d105d5153"
+                                    class="text-white opacity-75 text-decoration-none"><span class="__cf_email__"
+                                        data-cfemail="95fcfbf3fad5e6f4fdecfaf2e1fae0e7e6bbf6faf8">[email&#160;protected]</span></a>
                             </div>
                         </li>
                         <li class="d-flex align-items-start">
@@ -1471,15 +1588,16 @@
     </footer>
 
     <!-- Scripts -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
         // Navbar scroll effect
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
+            if (window.scrollY > 0) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
@@ -1630,4 +1748,14 @@
                 }
             });
 
-            navLinks.forEach(link =>
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
