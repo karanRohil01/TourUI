@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahyog Tour & Travels - Premium Travel Experience</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0052cc;
+            --secondary: #ff7a00;
+            --dark: #0a192f;
+            --light: #f8fbff;
+            --glass: rgba(255, 255, 255, 0.95);
+            --gradient: linear-gradient(135deg, #0052cc 0%, #00b4d8 100%);
+            --gradient-warm: linear-gradient(135deg, #ff7a00 0%, #ffaa00 100%);
+            --accent-gold: #ffd700;
+            --shadow-sm: 0 2px 10px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-lg: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* --- Enhanced Animations --- */
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--secondary); }
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 82, 204, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(0, 82, 204, 0.6); }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        .reveal-text {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid var(--secondary);
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        /* --- Enhanced Navbar --- */
+        .navbar {
+            padding: 20px 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: transparent;
+            z-index: 1000;
+        }
+
+        .navbar.scrolled {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            padding: 12px 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 900;
+            font-size: 1.8rem;
+            color: var(--primary) !important;
+            letter-spacing: -0.5px;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            transform: scale(1.05);
+        }
+
+        .navbar-brand span {
+            color: var(--secondary);
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: var(--dark) !important;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--gradient);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 10px;
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        /* --- Enhanced Hero Section --- */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(0, 82, 204, 0.35) 0%, rgba(10, 25, 47, 0.45) 100%), 
+                        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80');
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 122, 0, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-weight: 900;
+            color: white;
+            line-height: 1.1;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .hero-badge {
+            background: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+            display: inline-block;
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        /* --- Enhanced Search Engine --- */
+        .search-engine {
+            background: white;
+            border-radius: 30px;
+            padding: 30px;
+            box-shadow: 0 30px 70px -12px rgba(0, 0, 0, 0.35);
+            margin-top: -120px;
+            position: relative;
+            z-index: 100;
+            border: 2px solid rgba(255,255,255,0.5);
+            transition: all 0.4s ease;
+        }
+
+        .search-engine:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 40px 90px -12px rgba(0, 0, 0, 0.4);
+        }
+
+        .form-group-custom {
+            padding: 15px 25px;
+            border-right: 2px solid #eee;
+        }
+
+        .form-group-custom:last-child {
+            border-right: none;
+        }
+
+        .form-group-custom label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .form-group-custom input,
+        .form-group-custom select {
+            border: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 0;
+            width: 100%;
+            outline: none;
+            color: var(--dark);
+        }
+
+        /* --- Enhanced Service Cards --- */
+        .service-card {
+            background: white;
+            border-radius: 25px;
+            padding: 45px;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: 2px solid #f5f5f5;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .service-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 0;
+            opacity: 0;
+        }
+
+        .service-card:hover::before {
+            left: 0;
+            opacity: 0.08;
+        }
+
+        .service-card:hover {
+            transform: translateY(-20px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .icon-box {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #eef4ff 0%, #e0ebff 100%);
+            color: var(--primary);
+            border-radius: 25px;
+            line-height: 90px;
+            font-size: 38px;
+            margin: 0 auto 30px;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card:hover .icon-box {
+            background: var(--gradient);
+            color: white;
+            transform: rotateY(360deg) scale(1.1);
+            box-shadow: 0 15px 35px rgba(0, 82, 204, 0.3);
+        }
+
+        /* --- Enhanced Swiper Navigation --- */
+        .swiper-scroll-container {
+            position: relative;
+        }
+
+        .swiper-scroll-nav {
+            position: absolute;
+            top: -70px;
+            right: 0;
+            z-index: 10;
+            display: flex;
+            gap: 12px;
+        }
+
+        .swiper-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .swiper-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.15);
+            box-shadow: 0 8px 20px rgba(0, 82, 204, 0.3);
+        }
+
+        .swiper-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            transform: scale(1);
+        }
+
+        /* --- Enhanced Swiper --- */
+        .swiper {
+            width: 100%;
+            padding: 30px 0;
+        }
+
+        .swiper-slide {
+            height: auto;
+        }
+
+        /* --- Enhanced Package Cards --- */
+        .package-card {
+            border-radius: 30px;
+            overflow: hidden;
+            border: none;
+            background: white;
+            box-shadow: var(--shadow-md);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+        }
+
+        .package-card:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.2);
+        }
+
+        .img-zoom-container {
+            overflow: hidden;
+            height: 300px;
+            position: relative;
+        }
+
+        .img-zoom-container::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.3) 100%);
+            opacity: 0;
+            transition: 0.4s ease;
+        }
+
+        .package-card:hover .img-zoom-container::after {
+            opacity: 1;
+        }
+
+        .img-zoom-container img {
+            transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .package-card:hover img {
+            transform: scale(1.15) rotate(2deg);
+        }
+
+        .price-tag {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 900;
+            color: var(--primary);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            font-size: 1.1rem;
+            z-index: 10;
+        }
+
+        .package-badge {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            background: var(--gradient-warm);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            box-shadow: 0 5px 15px rgba(255, 122, 0, 0.3);
+            z-index: 10;
+        }
+
+        /* --- Enhanced Stats Section --- */
+        .stats-card {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s ease;
+            border: 2px solid #f5f5f5;
+        }
+
+        .stats-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .stats-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .stats-label {
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        .stats-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        /* --- Enhanced Testimonials --- */
+        .testimonial-card {
+            background: white;
+            border-radius: 30px;
+            padding: 45px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 2px solid #f5f5f5;
+            transition: all 0.4s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .testimonial-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: -50px auto 25px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.8rem;
+            box-shadow: 0 15px 40px rgba(0, 82, 204, 0.3);
+            border: 5px solid white;
+        }
+
+        .stars {
+            color: var(--accent-gold);
+            margin: 15px 0;
+            font-size: 1.4rem;
+            letter-spacing: 3px;
+        }
+
+        .testimonial-card p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .testimonial-quote {
+            position: absolute;
+            top: 20px;
+            left: 25px;
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.1;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- Enhanced Gallery --- */
+        .gallery-item {
+            border-radius: 25px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            height: 350px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.15) rotate(2deg);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 82, 204, 0.9) 0%, rgba(0, 180, 216, 0.9) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay i {
+            color: white;
+            font-size: 3rem;
+            animation: floating 2s ease-in-out infinite;
+        }
+
+        /* --- Enhanced Why Choose Cards --- */
+        .why-card {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+            border: 2px solid #f5f5f5;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 82, 204, 0.05) 0%, transparent 70%);
+            transition: 0.6s ease;
+            transform: scale(0);
+        }
+
+        .why-card:hover::before {
+            transform: scale(1);
+        }
+
+        .why-card:hover {
+            transform: translateY(-20px) scale(1.03);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .why-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #eef4ff 0%, #e0ebff 100%);
+            color: var(--primary);
+            border-radius: 25px;
+            line-height: 100px;
+            font-size: 45px;
+            margin: 0 auto 25px;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .why-card:hover .why-icon {
+            background: var(--gradient);
+            color: white;
+            transform: rotate(360deg) scale(1.1);
+            box-shadow: 0 15px 40px rgba(0, 82, 204, 0.3);
+        }
+
+        /* --- Marquee Enhancement --- */
+        .marquee {
+            background: var(--dark);
+            color: white;
+            padding: 18px 0;
+            white-space: nowrap;
+            overflow: hidden;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .marquee::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100%;
+            background: linear-gradient(90deg, var(--dark) 0%, transparent 100%);
+            z-index: 2;
+        }
+
+        .marquee::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100%;
+            background: linear-gradient(270deg, var(--dark) 0%, transparent 100%);
+            z-index: 2;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+            padding-left: 100%;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* --- Enhanced CTA Section --- */
+        .cta-section {
+            background: var(--gradient);
+            border-radius: 40px;
+            padding: 80px 60px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 82, 204, 0.3);
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .cta-section i {
+            position: absolute;
+            right: -80px;
+            bottom: -80px;
+            font-size: 350px;
+            opacity: 0.08;
+        }
+
+        /* --- Section Headers --- */
+        .section-header {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 10px;
+        }
+
+        /* --- Scrollbar Enhancement --- */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient);
+            border-radius: 10px;
+            border: 2px solid #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        /* --- Responsive Enhancements --- */
+        @media (max-width: 768px) {
+            .form-group-custom {
+                border-right: none;
+                border-bottom: 2px solid #eee;
+                padding: 20px 15px;
+            }
+
+            .form-group-custom:last-child {
+                border-bottom: none;
+            }
+
+            .search-engine {
+                padding: 20px;
+                margin-top: -80px;
+            }
+
+            .service-card {
+                padding: 30px;
+            }
+
+            .cta-section {
+                padding: 50px 30px;
+            }
+
+            .swiper-scroll-nav {
+                top: -60px;
+                gap: 8px;
+            }
+
+            .swiper-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 16px;
+            }
+
+            .testimonial-card {
+                padding: 30px;
+            }
+
+            .why-card {
+                padding: 30px;
+            }
+
+            .stats-card {
+                padding: 30px;
+                margin-bottom: 15px;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .gallery-item {
+                height: 250px;
+            }
+        }
+
+        /* --- Additional Polish --- */
+        .btn-primary {
+            background: var(--gradient);
+            border: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 82, 204, 0.3);
+        }
+
+        .card-body h5 {
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        /* Loading animation for images */
+        img {
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand" href="#">SAHYOG<span>.</span>T&T</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+                <i class="fas fa-bars-staggered"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navContent">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link px-3" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#destinations">Destinations</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#testimonials">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#contact">Contact</a></li>
+                    <li class="nav-item ms-lg-4">
+                        <a href="tel:+919053033101" class="btn btn-primary rounded-pill px-4 py-2 fw-bold shadow-sm">
+                            <i class="fas fa-headset me-2"></i>Expert Help
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8" data-aos="fade-right">
+                    <span class="hero-badge mb-4">
+                        <i class="fas fa-trophy me-2"></i>#1 TRAVEL AGENCY IN HARYANA
+                    </span>
+                    <h1 class="hero-title mb-4">Explore The <br><span style="color: var(--secondary);">World</span> With Ease.</h1>
+                    <p class="text-white opacity-90 fs-5 mb-5 reveal-text">Flights • Hotels • Holiday Packages • Visa Assistance</p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="#destinations" class="btn btn-primary btn-lg rounded-pill px-5 py-3 fw-bold shadow">
+                            <i class="fas fa-compass me-2"></i>Explore Now
+                        </a>
+                        <a href="tel:+919053033101" class="btn btn-outline-light btn-lg rounded-pill px-5 py-3 fw-bold">
+                            <i class="fas fa-phone me-2"></i>Call Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Engine -->
+    <div class="container">
+        <div class="search-engine" data-aos="zoom-in-up" data-aos-delay="200">
+            <div class="row align-items-center g-0">
+                <div class="col-lg-3 col-md-6 form-group-custom">
+                    <label><i class="fas fa-map-marker-alt text-primary me-2"></i>Departure</label>
+                    <input type="text" placeholder="Enter City" value="New Delhi (DEL)">
+                </div>
+                <div class="col-lg-3 col-md-6 form-group-custom">
+                    <label><i class="fas fa-plane-arrival text-primary me-2"></i>Destination</label>
+                    <input type="text" placeholder="Where to?">
+                </div>
+                <div class="col-lg-2 col-md-6 form-group-custom">
+                    <label><i class="fas fa-calendar-alt text-primary me-2"></i>Date</label>
+                    <input type="date">
+                </div>
+                <div class="col-lg-2 col-md-6 form-group-custom">
+                    <label><i class="fas fa-user-friends text-primary me-2"></i>Travelers</label>
+                    <select>
+                        <option>1 Adult</option>
+                        <option>2 Adults</option>
+                        <option>3+ Adults</option>
+                        <option>Group</option>
+                    </select>
+                </div>
+                <div class="col-lg-2 col-md-12 p-3">
+                    <button class="btn btn-primary w-100 py-3 rounded-4 fw-bold shadow">
+                        SEARCH <i class="fas fa-arrow-right ms-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Marquee -->
+    <div class="marquee mt-5">
+        <div class="marquee-content">
+            ✈️ FLIGHT BOOKING • 🏨 HOTEL RESERVATION • 🌍 INTERNATIONAL TOURS • 📋 VISA ASSISTANCE • ☎️ 24/7 SUPPORT • 💰 BEST PRICE GUARANTEED • 👥 GROUP TOURS • 🏢 CORPORATE TRAVEL • ✈️ FLIGHT BOOKING • 🏨 HOTEL RESERVATION • 🌍 INTERNATIONAL TOURS • 📋 VISA ASSISTANCE • ☎️ 24/7 SUPPORT • 💰 BEST PRICE GUARANTEED • 👥 GROUP TOURS • 🏢 CORPORATE TRAVEL
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <section class="py-5 bg-white mt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up">
+                    <div class="stats-card">
+                        <div class="stats-icon"><i class="fas fa-users"></i></div>
+                        <div class="stats-number">50K+</div>
+                        <div class="stats-label">Happy Travelers</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stats-card">
+                        <div class="stats-icon"><i class="fas fa-globe-americas"></i></div>
+                        <div class="stats-number">150+</div>
+                        <div class="stats-label">Destinations</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stats-card">
+                        <div class="stats-icon"><i class="fas fa-award"></i></div>
+                        <div class="stats-number">15+</div>
+                        <div class="stats-label">Years Experience</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stats-card">
+                        <div class="stats-icon"><i class="fas fa-star"></i></div>
+                        <div class="stats-number">4.9★</div>
+                        <div class="stats-label">Google Rating</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Sahyog Section with Horizontal Scroll -->
+    <section class="py-5" id="services">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h6 class="text-primary fw-bold text-uppercase letter-spacing-1">OUR EXPERTISE</h6>
+                <h2 class="display-5 fw-bold section-header mb-4">Why Choose Sahyog?</h2>
+                <p class="text-muted fs-5 mt-3 mx-auto" style="max-width: 700px;">We provide comprehensive travel solutions with world-class service and unmatched customer satisfaction</p>
+            </div>
+
+            <div class="swiper-scroll-container" data-aos="fade-up">
+                <div class="swiper-scroll-nav">
+                    <button class="swiper-btn why-prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="swiper-btn why-next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <div class="swiper swiper-why">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="why-card">
+                                <div class="why-icon"><i class="fas fa-ticket"></i></div>
+                                <h5 class="fw-bold mb-3">Instant Flight Booking</h5>
+                                <p class="text-muted">Real-time booking for domestic & international routes with competitive prices and instant confirmation.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="why-card">
+                                <div class="why-icon"><i class="fas fa-umbrella-beach"></i></div>
+                                <h5 class="fw-bold mb-3">Customized Packages</h5>
+                                <p class="text-muted">Tailored itineraries designed to match your preferences, budget, and travel style perfectly.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="why-card">
+                                <div class="why-icon"><i class="fas fa-passport"></i></div>
+                                <h5 class="fw-bold mb-3">Visa Assistance</h5>
+                                <p class="text-muted">Expert support for visa documentation, processing, and interview preparation with high success rates.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="why-card">
+                                <div class="why-icon"><i class="fas fa-shield-halved"></i></div>
+                                <h5 class="fw-bold mb-3">Safe Travel Guarantee</h5>
+                                <p class="text-muted">Verified accommodations, secure transport, and 24/7 emergency support throughout your journey.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="why-card">
+                                <div class="why-icon"><i class="fas fa-medal"></i></div>
+                                <h5 class="fw-bold mb-3">Best Price Match</h5>
+                                <p class="text-muted">Find a lower price? We'll match it and give you additional exclusive discounts and benefits.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="why-card">
+                                <div class="why-icon"><i class="fas fa-headset"></i></div>
+                                <h5 class="fw-bold mb-3">24/7 Support</h5>
+                                <p class="text-muted">Round-the-clock multilingual customer service to resolve queries and concerns anytime, anywhere.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Destinations with Horizontal Scroll -->
+    <section class="py-5 bg-white" id="destinations">
+        <div class="container py-5">
+            <div class="mb-5" data-aos="fade-right">
+                <div class="text-center">
+                    <h6 class="text-primary fw-bold text-uppercase">FEATURED TOURS</h6>
+                    <h2 class="display-5 fw-bold section-header mb-4">Popular Destinations</h2>
+                    <p class="text-muted fs-5 mx-auto" style="max-width: 700px;">Discover handpicked experiences across the globe with unbeatable prices and unforgettable memories</p>
+                </div>
+            </div>
+
+            <div class="swiper-scroll-container" data-aos="fade-up">
+                <div class="swiper-scroll-nav">
+                    <button class="swiper-btn dest-prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="swiper-btn dest-next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <div class="swiper swiper-destinations">
+                    <div class="swiper-wrapper">
+                        <!-- Package 1 -->
+                        <div class="swiper-slide">
+                            <div class="package-card card">
+                                <div class="img-zoom-container">
+                                    <span class="package-badge"><i class="fas fa-fire me-1"></i> HOT DEAL</span>
+                                    <span class="price-tag">₹55,000</span>
+                                    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600" alt="Dubai">
+                                </div>
+                                <div class="card-body p-4">
+                                    <h5 class="fw-bold mb-2">Dubai City Sparkle</h5>
+                                    <p class="text-muted small mb-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i>UAE • 5 Days / 4 Nights</p>
+                                    <hr class="my-3 opacity-25">
+                                    <div class="d-flex justify-content-between align-items-center text-center small mb-3">
+                                        <span><i class="fas fa-star text-warning me-1"></i> 4.8 Rating</span>
+                                        <span><i class="fas fa-users text-primary me-1"></i> 2.3K Bookings</span>
+                                    </div>
+                                    <button class="btn btn-primary w-100 rounded-3 fw-bold py-2">
+                                        <i class="fas fa-calendar-check me-2"></i>Book Now
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Package 2 -->
+                        <div class="swiper-slide">
+                            <div class="package-card card">
+                                <div class="img-zoom-container">
+                                    <span class="package-badge"><i class="fas fa-crown me-1"></i> PREMIUM</span>
+                                    <span class="price-tag">₹1,20,000</span>
+                                    <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=600" alt="Switzerland">
+                                </div>
+                                <div class="card-body p-4">
+                                    <h5 class="fw-bold mb-2">Swiss Alps Magic</h5>
+                                    <p class="text-muted small mb-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i>Europe • 7 Days / 6 Nights</p>
+                                    <hr class="my-3 opacity-25">
+                                    <div class="d-flex justify-content-between align-items-center text-center small mb-3">
+                                        <span><i class="fas fa-star text-warning me-1"></i> 4.9 Rating</span>
+                                        <span><i class="fas fa-users text-primary me-1"></i> 1.8K Bookings</span>
+                                    </div>
+                                    <button class="btn btn-primary w-100 rounded-3 fw-bold py-2">
+                                        <i class="fas fa-calendar-check me-2"></i>Book Now
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Package 3 -->
+                        <div class="swiper-slide">
+                            <div class="package-card card">
+                                <div class="img-zoom-container">
+                                    <span class="package-badge"><i class="fas fa-bolt me-1"></i> BESTSELLER</span>
+                                    <span class="price-tag">₹25,500</span>
+                                    <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=600" alt="Kerala">
+                                </div>
+                                <div class="card-body p-4">
+                                    <h5 class="fw-bold mb-2">Kerala Backwaters</h5>
+                                    <p class="text-muted small mb-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i>India • 4 Days / 3 Nights</p>
+                                    <hr class="my-3 opacity-25">
+                                    <div class="d-flex justify-content-between align-items-center text-center small mb-3">
+                                        <span><i class="fas fa-star text-warning me-1"></i> 4.7 Rating</span>
+                                        <span><i class="fas fa-users text-primary me-1"></i> 3.5K Bookings</span>
+                                    </div>
+                                    <button class="btn btn-primary w-100 rounded-3 fw-bold py-2">
+                                        <i class="fas fa-calendar-check me-2"></i>Book Now
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Package 4 -->
+                        <div class="swiper-slide">
+                            <div class="package-card card">
+                                <div class="img-zoom-container">
+                                    <span class="package-badge"><i class="fas fa-fire me-1"></i> TRENDING</span>
+                                    <span class="price-tag">₹85,000</span>
+                                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600" alt="Bali">
+                                </div>
+                                <div class="card-body p-4">
+                                    <h5 class="fw-bold mb-2">Bali Tropical Escape</h5>
+                                    <p class="text-muted small mb-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i>Indonesia • 5 Days / 4 Nights</p>
+                                    <hr class="my-3 opacity-25">
+                                    <div class="d-flex justify-content-between align-items-center text-center small mb-3">
+                                        <span><i class="fas fa-star text-warning me-1"></i> 4.8 Rating</span>
+                                        <span><i class="fas fa-users text-primary me-1"></i> 2.1K Bookings</span>
+                                    </div>
+                                    <button class="btn btn-primary w-100 rounded-3 fw-bold py-2">
+                                        <i class="fas fa-calendar-check me-2"></i>Book Now
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Package 5 -->
+                        <div class="swiper-slide">
+                            <div class="package-card card">
+                                <div class="img-zoom-container">
+                                    <span class="package-badge"><i class="fas fa-star me-1"></i> POPULAR</span>
+                                    <span class="price-tag">₹95,000</span>
+                                    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600" alt="Thailand">
+                                </div>
+                                <div class="card-body p-4">
+                                    <h5 class="fw-bold mb-2">Thailand Adventure</h5>
+                                    <p class="text-muted small mb-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i>Thailand • 6 Days / 5 Nights</p>
+                                    <hr class="my-3 opacity-25">
+                                    <div class="d-flex justify-content-between align-items-center text-center small mb-3">
+                                        <span><i class="fas fa-star text-warning me-1"></i> 4.6 Rating</span>
+                                        <span><i class="fas fa-users text-primary me-1"></i> 2.9K Bookings</span>
+                                    </div>
+                                    <button class="btn btn-primary w-100 rounded-3 fw-bold py-2">
+                                        <i class="fas fa-calendar-check me-2"></i>Book Now
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Package 6 -->
+                        <div class="swiper-slide">
+                            <div class="package-card card">
+                                <div class="img-zoom-container">
+                                    <span class="package-badge"><i class="fas fa-heart me-1"></i> ROMANTIC</span>
+                                    <span class="price-tag">₹75,000</span>
+                                    <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=600" alt="Paris">
+                                </div>
+                                <div class="card-body p-4">
+                                    <h5 class="fw-bold mb-2">Paris Romance</h5>
+                                    <p class="text-muted small mb-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i>France • 5 Days / 4 Nights</p>
+                                    <hr class="my-3 opacity-25">
+                                    <div class="d-flex justify-content-between align-items-center text-center small mb-3">
+                                        <span><i class="fas fa-star text-warning me-1"></i> 4.9 Rating</span>
+                                        <span><i class="fas fa-users text-primary me-1"></i> 4.2K Bookings</span>
+                                    </div>
+                                    <button class="btn btn-primary w-100 rounded-3 fw-bold py-2">
+                                        <i class="fas fa-calendar-check me-2"></i>Book Now
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section with Horizontal Scroll -->
+    <section class="py-5" id="gallery">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h6 class="text-primary fw-bold text-uppercase">TRAVEL INSPIRATION</h6>
+                <h2 class="display-5 fw-bold section-header mb-4">Our Gallery</h2>
+                <p class="text-muted fs-5 mx-auto" style="max-width: 700px;">Experience the beauty of places our travelers have explored and create your own memories</p>
+            </div>
+
+            <div class="swiper-scroll-container" data-aos="fade-up">
+                <div class="swiper-scroll-nav">
+                    <button class="swiper-btn gallery-prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="swiper-btn gallery-next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <div class="swiper swiper-gallery">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600" alt="Beach Sunset">
+                                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=600" alt="Mountain Peak">
+                                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=600" alt="City Lights">
+                                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600" alt="Tropical Beach">
+                                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600" alt="Temple Architecture">
+                                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=600" alt="Alpine Landscape">
+                                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600" alt="Desert Dubai">
+                                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=600" alt="Backwaters">
+                                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section with Horizontal Scroll -->
+    <section class="py-5 bg-white" id="testimonials">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h6 class="text-primary fw-bold text-uppercase">CLIENT REVIEWS</h6>
+                <h2 class="display-5 fw-bold section-header mb-4">What Our Travelers Say</h2>
+                <p class="text-muted fs-5 mx-auto" style="max-width: 700px;">Thousands of satisfied customers share their amazing experiences with Sahyog Tour & Travels</p>
+            </div>
+
+            <div class="swiper-scroll-container" data-aos="fade-up">
+                <div class="swiper-scroll-nav">
+                    <button class="swiper-btn testimonial-prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="swiper-btn testimonial-next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <div class="swiper swiper-testimonials">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-quote">"</div>
+                                <div class="testimonial-avatar">👨‍💼</div>
+                                <div class="stars">★★★★★</div>
+                                <p>"Amazing service! Sahyog made my family trip to Dubai absolutely memorable. The itinerary was perfect and customer support was exceptional throughout."</p>
+                                <h6 class="fw-bold mb-1">Rajesh Kumar</h6>
+                                <small class="text-muted"><i class="fas fa-map-marker-alt me-1"></i>Hisar, Haryana</small>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-quote">"</div>
+                                <div class="testimonial-avatar">👩‍🦰</div>
+                                <div class="stars">★★★★★</div>
+                                <p>"Best travel agency in Hisar! They organized my entire Switzerland trip with perfection. Highly recommended for all international travelers."</p>
+                                <h6 class="fw-bold mb-1">Priya Sharma</h6>
+                                <small class="text-muted"><i class="fas fa-map-marker-alt me-1"></i>New Delhi</small>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-quote">"</div>
+                                <div class="testimonial-avatar">👴</div>
+                                <div class="stars">★★★★★</div>
+                                <p>"Professional team, competitive prices, and outstanding execution. Our Kerala trip was beyond expectations. Will definitely book again!"</p>
+                                <h6 class="fw-bold mb-1">Virender Singh</h6>
+                                <small class="text-muted"><i class="fas fa-map-marker-alt me-1"></i>Panipat</small>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-quote">"</div>
+                                <div class="testimonial-avatar">👩‍💼</div>
+                                <div class="stars">★★★★★</div>
+                                <p>"Booked Thailand trip at last minute and they delivered flawlessly. Expert visa guidance and seamless travel experience from start to finish."</p>
+                                <h6 class="fw-bold mb-1">Anjali Gupta</h6>
+                                <small class="text-muted"><i class="fas fa-map-marker-alt me-1"></i>Faridabad</small>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-quote">"</div>
+                                <div class="testimonial-avatar">👨‍🦱</div>
+                                <div class="stars">★★★★★</div>
+                                <p>"Outstanding service for corporate travel arrangements. Their attention to detail and quick response time is unmatched in the industry."</p>
+                                <h6 class="fw-bold mb-1">Amit Patel</h6>
+                                <small class="text-muted"><i class="fas fa-map-marker-alt me-1"></i>Gurgaon</small>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-quote">"</div>
+                                <div class="testimonial-avatar">👵</div>
+                                <div class="stars">★★★★★</div>
+                                <p>"My entire family's Paris trip was perfectly organized. The 24/7 support made us feel secure throughout the entire journey."</p>
+                                <h6 class="fw-bold mb-1">Meera Verma</h6>
+                                <small class="text-muted"><i class="fas fa-map-marker-alt me-1"></i>Rohtak</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5">
+        <div class="container py-5">
+            <div class="cta-section" data-aos="zoom-in">
+                <i class="fas fa-plane-departure"></i>
+                <div class="row align-items-center">
+                    <div class="col-lg-8 text-center text-lg-start mb-4 mb-lg-0">
+                        <h2 class="display-5 fw-bold mb-3">Ready for Your Next Adventure?</h2>
+                        <p class="fs-5 mb-0 opacity-90">Get exclusive deals and personalized travel recommendations tailored just for you</p>
+                    </div>
+                    <div class="col-lg-4 text-center text-lg-end">
+                        <div class="d-flex flex-column gap-3">
+                            <a href="https://wa.me/919053033101" target="_blank" class="btn btn-light btn-lg rounded-pill px-5 py-3 fw-bold">
+                                <i class="fab fa-whatsapp me-2"></i>WhatsApp Us
+                            </a>
+                            <a href="tel:+919053033101" class="btn btn-outline-light btn-lg rounded-pill px-5 py-3 fw-bold">
+                                <i class="fas fa-phone me-2"></i>Call Us Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5" id="contact">
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="fw-bold mb-4">SAHYOG<span style="color: var(--secondary);">.</span>T&T</h4>
+                    <p class="opacity-75 mb-4">Your trusted travel partner for unforgettable journeys across the globe. Creating memories that last a lifetime.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle" style="width: 40px; height: 40px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle" style="width: 40px; height: 40px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle" style="width: 40px; height: 40px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle" style="width: 40px; height: 40px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold mb-4">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#home" class="text-decoration-none text-white opacity-75 d-block hover-primary">Home</a></li>
+                        <li class="mb-2"><a href="#destinations" class="text-decoration-none text-white opacity-75 d-block">Destinations</a></li>
+                        <li class="mb-2"><a href="#services" class="text-decoration-none text-white opacity-75 d-block">Services</a></li>
+                        <li class="mb-2"><a href="#gallery" class="text-decoration-none text-white opacity-75 d-block">Gallery</a></li>
+                        <li class="mb-2"><a href="#testimonials" class="text-decoration-none text-white opacity-75 d-block">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold mb-4">Services</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white opacity-75 d-block">✈️ Flight Booking</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white opacity-75 d-block">🏨 Hotel Reservation</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white opacity-75 d-block">📋 Visa Assistance</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white opacity-75 d-block">🌴 Holiday Packages</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-white opacity-75 d-block">🏢 Corporate Travel</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold mb-4">Contact Info</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fas fa-phone text-secondary me-3 mt-1"></i>
+                            <div>
+                                <strong>Phone:</strong><br>
+                                <a href="tel:+919053033101" class="text-white opacity-75 text-decoration-none">+91 90530 33101</a>
+                            </div>
+                        </li>
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fas fa-envelope text-secondary me-3 mt-1"></i>
+                            <div>
+                                <strong>Email:</strong><br>
+                                <a href="/cdn-cgi/l/email-protection#3e575058517e4d5f564751594a514b4c4d105d5153" class="text-white opacity-75 text-decoration-none"><span class="__cf_email__" data-cfemail="95fcfbf3fad5e6f4fdecfaf2e1fae0e7e6bbf6faf8">[email&#160;protected]</span></a>
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-start">
+                            <i class="fas fa-map-marker-alt text-secondary me-3 mt-1"></i>
+                            <div>
+                                <strong>Location:</strong><br>
+                                <span class="opacity-75">Hisar, Haryana, India</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="opacity-25 my-4">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start opacity-75 mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2026 Sahyog Tour & Travels. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end opacity-75">
+                    <p class="mb-0">Crafted with <i class="fas fa-heart text-danger"></i> for travelers</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // AOS initialization
+        AOS.init({
+            duration: 1200,
+            once: true,
+            offset: 100,
+            easing: 'ease-out-cubic'
+        });
+
+        // Why Choose Sahyog Swiper
+        new Swiper('.swiper-why', {
+            slidesPerView: 1,
+            spaceBetween: 25,
+            loop: true,
+            speed: 1000,
+            autoplay: {
+                delay: 3500,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.why-next',
+                prevEl: '.why-prev',
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 25,
+                },
+            }
+        });
+
+        // Popular Destinations Swiper
+        new Swiper('.swiper-destinations', {
+            slidesPerView: 1,
+            spaceBetween: 25,
+            loop: true,
+            speed: 1000,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.dest-next',
+                prevEl: '.dest-prev',
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 25,
+                },
+            }
+        });
+
+        // Gallery Swiper
+        new Swiper('.swiper-gallery', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            speed: 1000,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.gallery-next',
+                prevEl: '.gallery-prev',
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                },
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 25,
+                },
+            }
+        });
+
+        // Testimonials Swiper
+        new Swiper('.swiper-testimonials', {
+            slidesPerView: 1,
+            spaceBetween: 25,
+            loop: true,
+            speed: 1000,
+            autoplay: {
+                delay: 4500,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.testimonial-next',
+                prevEl: '.testimonial-prev',
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 25,
+                },
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active class to nav links on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
