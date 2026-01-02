@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light only">
     <title>Sahyog Tour & Travels - Premium Travel Experience</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -17,7 +18,9 @@
             --secondary: #ff7a00;
             --dark: #0a192f;
             --light: #f8fbff;
-            --glass: rgba(255, 255, 255, 0.95);
+            --cream: #fffef9;
+            --soft-white: #fdfcf7;
+            --glass: rgba(253, 252, 247, 0.95);
             --gradient: linear-gradient(135deg, #0052cc 0%, #00b4d8 100%);
             --gradient-warm: linear-gradient(135deg, #ff7a00 0%, #ffaa00 100%);
             --accent-gold: #ffd700;
@@ -41,6 +44,17 @@
             background-color: var(--light);
             color: var(--dark);
             overflow-x: hidden;
+            color-scheme: light;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Force light mode - override dark mode */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: var(--light) !important;
+                color: var(--dark) !important;
+            }
         }
 
         /* --- Enhanced Animations --- */
@@ -153,7 +167,7 @@
         /* --- Enhanced Hero Section --- */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, rgba(0, 82, 204, 0.35) 0%, rgba(10, 25, 47, 0.45) 100%), 
+            background: linear-gradient(135deg, rgba(0, 82, 204, 0.85) 0%, rgba(10, 25, 47, 0.75) 100%), 
                         url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80');
             background-attachment: fixed;
             background-position: center;
@@ -199,7 +213,7 @@
 
         /* --- Enhanced Search Engine --- */
         .search-engine {
-            background: white;
+            background: var(--soft-white);
             border-radius: 30px;
             padding: 30px;
             box-shadow: 0 30px 70px -12px rgba(0, 0, 0, 0.35);
@@ -246,7 +260,7 @@
 
         /* --- Enhanced Service Cards --- */
         .service-card {
-            background: white;
+            background: var(--soft-white);
             border-radius: 25px;
             padding: 45px;
             text-align: center;
@@ -298,7 +312,7 @@
 
         .service-card:hover .icon-box {
             background: var(--gradient);
-            color: white;
+            color: var(--cream);
             transform: rotateY(360deg) scale(1.1);
             box-shadow: 0 15px 35px rgba(0, 82, 204, 0.3);
         }
@@ -321,7 +335,7 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: white;
+            background: var(--soft-white);
             border: 2px solid var(--primary);
             color: var(--primary);
             cursor: pointer;
@@ -361,7 +375,7 @@
             border-radius: 30px;
             overflow: hidden;
             border: none;
-            background: white;
+            background: var(--soft-white);
             box-shadow: var(--shadow-md);
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             height: 100%;
@@ -406,7 +420,7 @@
             position: absolute;
             top: 25px;
             right: 25px;
-            background: white;
+            background: var(--soft-white);
             padding: 12px 24px;
             border-radius: 50px;
             font-weight: 900;
@@ -434,7 +448,7 @@
         .stats-card {
             text-align: center;
             padding: 40px;
-            background: white;
+            background: var(--soft-white);
             border-radius: 25px;
             box-shadow: var(--shadow-sm);
             transition: all 0.4s ease;
@@ -472,7 +486,7 @@
 
         /* --- Enhanced Testimonials --- */
         .testimonial-card {
-            background: white;
+            background: var(--soft-white);
             border-radius: 30px;
             padding: 45px;
             box-shadow: var(--shadow-md);
@@ -501,10 +515,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--soft-white);
             font-size: 2.8rem;
             box-shadow: 0 15px 40px rgba(0, 82, 204, 0.3);
-            border: 5px solid white;
+            border: 5px solid var(--soft-white);
         }
 
         .stars {
@@ -575,14 +589,14 @@
         }
 
         .gallery-overlay i {
-            color: white;
+            color: var(--cream);
             font-size: 3rem;
             animation: floating 2s ease-in-out infinite;
         }
 
         /* --- Enhanced Why Choose Cards --- */
         .why-card {
-            background: white;
+            background: var(--soft-white);
             border-radius: 25px;
             padding: 40px;
             text-align: center;
@@ -632,7 +646,7 @@
 
         .why-card:hover .why-icon {
             background: var(--gradient);
-            color: white;
+            color: var(--cream);
             transform: rotate(360deg) scale(1.1);
             box-shadow: 0 15px 40px rgba(0, 82, 204, 0.3);
         }
@@ -686,7 +700,7 @@
             background: var(--gradient);
             border-radius: 40px;
             padding: 80px 60px;
-            color: white;
+            color: var(--cream);
             position: relative;
             overflow: hidden;
             box-shadow: 0 30px 60px rgba(0, 82, 204, 0.3);
@@ -1465,7 +1479,7 @@
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
-            if (window.scrollY > 0) {
+            if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
@@ -1616,13 +1630,4 @@
                 }
             });
 
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+            navLinks.forEach(link =>
